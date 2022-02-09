@@ -27,6 +27,10 @@ $(function($) {
         //debugger
         $.get("http://phpclub.org.cn:8080/api/user/sendVerify", { mobile },
             function(data) {
+                if (data.msg != "ok") {
+                    // debugger
+                    layer.msg(data.msg);
+                }
                 console.log("Data Loaded: " + JSON.stringify(data));
 
                 verifyCode.val(data.data.verifyCode);
