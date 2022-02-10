@@ -9,6 +9,7 @@ $(function($) {
                 if (data.code != 0) {
                     alert("登录错误！！！");
                 } else {
+                    window.localStorage.setItem('userInfo', JSON.stringify(data.data))
                     window.location.href = "index.html"
                 }
                 // debugger
