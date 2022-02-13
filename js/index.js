@@ -10,14 +10,15 @@ $(function() {
     $.get("http://phpclub.org.cn:8080/api/system/category",
             function(response) {
                 console.log(response);
+                // debugger
                 let html = '';
                 response.data.forEach((item, index) => {
                     html += '<div class="cat"><h3><a>' + item.cateName + '</a><b></b></h3><div class="cat_detail">';
                     item.children && item.children.forEach((item2, index2) => {
                         console.log(item2);
-                        html += `<dl class= "${index2 == 0? 'dl_1st':''}"><dt><a href="">${item2.cateName}</a></dt>`;
+                        html += `<dl class= "${index2 == 0? 'dl_1st':''}"><dt><a href="/showList.html?Id=${item2.id}">${item2.cateName}</a></dt>`;
                         item2.children && item2.children.forEach((item3, index3) => {
-                            html += `<dd><a>${item3.cateName}</a></dd>`;
+                            html += `<dd><a href="/showList.html?Id=${item3.id}">${item3.cateName}</a></dd>`;
                         })
                         html += '</dl>';
 
